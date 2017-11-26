@@ -332,11 +332,32 @@
 
     <div class="map-box">
       <div class="map">&nbsp;</div>
-      <div class="form-box">
+
+      <div class="form-box" id="form">
         <div class="row">
           <h2>We're happy to hear from you</h2>
+
           <div class="row">
-            <form class="contact-form" action="#" method="post">
+            <form class="contact-form" action="mailer.php" method="post">
+
+              <div class="row">
+
+                <?php
+                  if($_GET['success'] == 1) {
+                    echo "<div class=\"form-messages success\">
+                      Thank you! Your message has been sent.
+                    </div>"
+                  }
+
+                  if($_GET['success'] == -1) {
+                    echo "<div class=\"form-messages error\">
+                      Oops! Something went wrong. Please try again!
+                    </div>"
+                  }
+                ?>
+
+              </div>
+
               <div class="row">
                 <div class="col span-1-of-3">
                   <label for="name">Name</label>
@@ -404,7 +425,7 @@
       </div>
     </div>
 
-    <footer>
+    <footer class="clearfix">
       <div class="row">
         <div class="col span-1-of-2">
           <ul class="footer-nav">
@@ -435,8 +456,7 @@
     <script src="https://cdn.jsdelivr.net/npm/respond@0.9.0/main.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/selectivizr@1.0.3/selectivizr.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9QgDZzjP49t1OuzRn4O5CO2adQiFFFIY&callback=initMap"
-type="text/javascript"></script>
+    <script src="https://maps.google.com/maps/api/js"></script>
     <script src="vendors/js/jquery.waypoints.min.js"></script>
     <script src="resources/js/script.js"></script>
     <script src="resources/js/gmaps.js"></script>
